@@ -67,6 +67,12 @@ public:
 		hotkeys.insert(std::pair<const Hotkey, HotkeyCallbacks>(key, Callbacks));
 	}
 
+	void Unregister(BInput const& InputData, HotkeyCallbacks const& Callbacks)
+	{
+		Hotkey key(InputData.Key, InputData.bCtrlPressed, InputData.bAltPressed, InputData.bShiftPressed);
+		hotkeys.erase(key);
+	}
+
 	void ProcessInput(EInputKeyEvent* const& InputData)
 	{
 		Hotkey key(InputData->_vKey, InputData->bCtrlPressed, InputData->bAltPressed, InputData->bShiftPressed);
@@ -123,7 +129,7 @@ void MyKeyRepeat();
 /*
 	Hotkey callbacks
 	If you don't need a specific callback you can set nullptr
-	
+
 	Structure:
 		void func: Function to call when key is in PRESSED state, will set flag below to true to prevent it from firing off multiple times (engine bug)
 		void func: Function to call when key is in RELEASED state, will reset flag below to false
