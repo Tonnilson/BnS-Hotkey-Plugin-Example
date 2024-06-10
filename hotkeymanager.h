@@ -138,7 +138,7 @@ void MyKeyRepeat();
 */
 HotkeyCallbacks HotkeyCallbacks_ReloadSettings = { ReloadHotkeys, nullptr, nullptr };
 HotkeyCallbacks HotkeyCallbacks_ToggleConsole = { ToggleConsole, nullptr, nullptr };
-HotkeyCallbacks HotkeyCallbacks_FullCallbackExample = { MyKeyPressed, MyKeyPressed, MyKeyRepeat };
+HotkeyCallbacks HotkeyCallbacks_FullCallbackExample = { MyKeyPressed, MyKeyReleased, MyKeyRepeat };
 
 /*
 	Hotkeys
